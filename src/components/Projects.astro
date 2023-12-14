@@ -1,0 +1,39 @@
+---
+const { lists } = Astro.props;
+---
+
+{
+	lists.map((item) => {
+		let paragraphs = item.description;
+		const str = item.main;
+		if (str) {
+			const arr = str
+				.split(/\d+\. /)
+				.filter((x) => x !== '')
+				.map((x) => x.trim());
+			paragraphs = arr.map((value, index) => (
+				<div  key={index}>{index + 1 + '.' + value}</div>
+			));
+		}
+		return (
+			<div class="w3-container ">
+				<div class="w3-flex">
+					<h5 class="w3-opacity ">
+						<b>{item.project}</b>
+					</h5>
+					<h6 class="w3-text-teal">
+						<i class="iconfont icon-riqishijian" />
+						{item.period}
+					</h6>
+				</div>
+
+				<span>{'使用技术：' + item.technique}</span>
+				<div>{item.description}</div>
+				<span>{item.tip}</span>
+				<div>{paragraphs}</div>
+				<hr />
+			</div>
+		);
+	})
+}
+

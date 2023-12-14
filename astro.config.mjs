@@ -5,23 +5,24 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
+			title: '首页',
 			social: {
 				github: 'https://github.com/withastro/starlight',
 			},
-			sidebar: [
-				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', link: '/guides/example/' },
-					],
+
+			components: {
+				// 重写默认的 `SocialIcons` 组件。
+				SocialIcons: './src/components/EmailLink.astro',
+				SocialLinks: './src/components/MySocialLinks.astro',
+			},
+			// 为此网站设置英语为默认语言。
+			defaultLocale: 'zh-CN',
+			locales: {
+				root: {
+					label: '简体中文',
+					lang: 'zh-CN',
 				},
-				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
-				},
-			],
+			},
 		}),
 	],
 });

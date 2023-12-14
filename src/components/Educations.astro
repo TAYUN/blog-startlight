@@ -1,0 +1,15 @@
+---
+const { lists } = Astro.props;
+---
+{lists.map((item) => (
+  // <p>{item.language}</p>
+  // <div class="w3-light-grey w3-round-xlarge">
+  //   <div class="w3-round-xlarge w3-teal" style={`height:24px;width:${item.percentage}%`}></div>
+  // </div>
+  <div class="w3-flex">
+    <div>{item.college}</div>
+    <div>{item.specislty}</div>
+    <div>{item.degree}</div>
+    <span>{item.duration}</span>
+    </div>
+))}
