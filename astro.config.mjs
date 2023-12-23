@@ -4,7 +4,7 @@ import starlight from '@astrojs/starlight';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://tayunblog.github.io',
-	base: '/tayunblog.github.io', 
+	base: '/', 
 	integrations: [
 		starlight({
 			title: '首页',
